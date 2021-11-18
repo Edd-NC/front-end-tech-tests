@@ -1,4 +1,4 @@
-const Test1 = () => {
+const Home = () => {
     return (
         <section>
 
@@ -6,4 +6,4 @@ const Test1 = () => {
     )
 }
 
-export default Test1;
+export default Home;
