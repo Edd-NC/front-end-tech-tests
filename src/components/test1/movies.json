@@ -173,4 +173,37 @@
         "iMDB": 8.9,
         "rottenTomatoes": [92, 96]
     }
+},
+{
+    "title": "Predator",
+    "genre": "Science Fiction",
+    "year": 1987,
+    "director": "John Mctiernan",
+    "cast": ["Arnold Schwarzeneggar", "Carl Weathers", "Elpidia Carrillo", "Bill Duke", "Richard Chaves"],
+    "ratings": {
+        "iMDB": 7.8,
+        "rottenTomatoes": [82, 87]
+    }
+},
+{
+    "title": "Indiana Jones: Raiders of the Lost Ark",
+    "genre": "Action",
+    "year": 1981,
+    "director": "Steven Spielberg",
+    "cast": ["Harrison Ford", "Karen Allen", "Paul Freeman", "Ronald Lacey", "John Rhys-Davies", "Denholm Elliot"],
+    "ratings": {
+        "iMDB": 8.4,
+        "rottenTomatoes": [95, 96]
+    }
+},
+{
+    "title": "The Shining",
+    "genre": "Horror",
+    "year": 1980,
+    "director": "Stanley Kubrick",
+    "cast": ["Jack Nicholson", "Shelly Duvall", "Scatman Crothers", "Danny Lloyd"],
+    "ratings": {
+        "iMDB": 8.4,
+        "rottenTomatoes": [84, 93]
+    }
 }]
