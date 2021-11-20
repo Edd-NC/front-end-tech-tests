@@ -17,9 +17,9 @@ const Test1 = () => {
                     if(movie.title.toLowerCase().includes(query.toLowerCase())) {
                         return (
                             <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td></tr>
-                    )
-                }
-            })}
+                        )
+                    } 
+                })}
             </table>
         </section>
     )
