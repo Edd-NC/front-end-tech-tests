@@ -10,17 +10,17 @@ const Test1 = () => {
             <h2>Movie List Filter:</h2>
             <form for="movieQuery" />
             <input id="movieQuery" value={query} onChange={(event) => setQuery(event.target.value)} />
-            <ul>
+            <br /><br />
+                <table>
+                <tr><th>Title</th><th>Director</th><th>Year</th><th>Genre</th><th></th></tr>
                 {movieData.map(movie => {
                     if(movie.title.toLowerCase().includes(query.toLowerCase())) {
                         return (
-                            <li key={movie.title}>
-                            {`${movie.title}, ${movie.genre}, ${movie.year}, ${movie.director}`}
-                        </li>
+                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td></tr>
                     )
                 }
-                })}
-            </ul>
+            })}
+            </table>
         </section>
     )
 }
