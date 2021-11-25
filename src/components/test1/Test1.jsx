@@ -13,7 +13,7 @@ const Test1 = () => {
             <label for="titleQuery">Query Title: </label><br />
             <input id="titleQuery" value={titleQuery} onChange={(event) => setTitleQuery(event.target.value)} /><br />
             <label for="directorQuery">Query Director: </label><br />
-            <input id="directorQuery" value={directorQuery} onChange={(event) => setDirectorQuery(event.target.value)} /><br />
+            <input id="directorQuery" value={directorQuery} onChange={(event) => setDirectorQuery(event.target.value)} /><br /> 
             </form>
             <br /><br />
                 <table>

@@ -1,37 +1,37 @@
 .menu {
-    position: relative;
-    width: 800px;
+    align-content: center;
 }
 
-.menu ul {
-    background-color: blue;
-    position: absolute;
+.dropMenu {
     display: flex;
+    position: absolute;
+    list-style-type: none;
     cursor: pointer;
-    color: white;
-    left: 0px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
 }
 
-.menu ul li {
-    position:relative;
-    display: block;
-    margin-left: 0px;
-    width: 200px;
-    height: 20px;
+.dropMenu li {
+    width:150px;
+    padding-top: 5px;
+    box-sizing: border-box;
 }
 
-.menu ul li ul {
+.dropDown {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.dropDown li {
     display: none;
-    padding: 10px 0px;
-}
-
-.menu li ul li {
-    padding: 5px 10px;
+    margin: 0px;
+    padding: 10px 10px;
     position: relative;
-    float: left;
+    width: auto;
 }
 
-.menu ul li:hover ul {
+.dropMenu li:hover .dropDown li {
     display: block;
-    cursor: pointer;
 }

@@ -5,10 +5,10 @@ const Test5 = () => {
         <section>
             <h2>Test 5</h2>
             <section className="menu">
-            <ul>
+            <ul className="dropMenu">
                 <li>Home</li>
                 <li>About Us</li>
-                <li>Tests<ul>
+                <li>Tests<ul className="dropDown">
                     <li>Test 1</li>
                     <li>Test 2</li>
                     <li>Test 3</li>
@@ -16,7 +16,7 @@ const Test5 = () => {
                     <li>Test 5</li>
                     <li>Test 6</li>
                     </ul></li>
-                <li>Companies<ul>
+                <li>Companies<ul className="dropDown">
                     <li>Northcoders</li>
                     <li>Apple</li>
                     <li>Google</li>
