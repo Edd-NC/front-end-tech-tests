@@ -1,7 +1,7 @@
 const Test6 = () => {
     return (
         <section>
-            <h3>Test 6</h3>
+            <h2>Test 6</h2>
         </section>
     )
 }
