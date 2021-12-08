@@ -1,37 +1,44 @@
-.menu {
-    align-content: center;
-}
-
-.dropMenu {
-    display: flex;
+#menu {
     position: absolute;
-    list-style-type: none;
-    cursor: pointer;
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
+    left: 0px;
+    right: 0px;
+    width: 1000px;
 }
 
-.dropMenu li {
-    width:150px;
-    padding-top: 5px;
-    box-sizing: border-box;
-}
-
-.dropDown {
+#menu li {
+    float: left;
     list-style-type: none;
+    padding: 5px 20px 5px 3px;
+    width: 150px;
+    background-color: darkblue;
+}
+
+#menu li ul {
+    background-color: darkblue;
+    margin: 0px;
     padding: 0px;
 }
 
-.dropDown li {
-    display: none;
-    margin: 0px;
-    padding: 10px 10px;
-    position: relative;
+#menu li ul li {
+    color: white;
+    float: none;
+    list-style-type: none;
     width: auto;
+    margin: 3px 0px 0px 0px;
+    padding: 5px 3px;
 }
 
-.dropMenu li:hover .dropDown li {
+.menu:hover .dropMenu {
     display: block;
+}
+
+.menu .dropMenu {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
