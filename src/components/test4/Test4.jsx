@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Test4.css";
+import "../instructionsButton.css";
 
 const Test4 = () => {
     const [showInstructions, setShowInstructions] = useState(false);

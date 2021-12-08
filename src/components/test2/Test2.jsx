@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import "./Test2.css";
+import "../instructionsButton.css";
 
 const Test2 = () => {
     const [showInstructions, setShowInstructions] = useState(false);

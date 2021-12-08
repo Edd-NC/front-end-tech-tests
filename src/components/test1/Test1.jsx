@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Test1.css";
+import "../instructionsButton.css";
 const movieData = require("./movies.json");
 
 const Test1 = () => {
