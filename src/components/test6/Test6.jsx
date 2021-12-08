@@ -39,17 +39,17 @@ const Test6 = () => {
                             }
                          setChat1("");
                     }}>
-                    <label for="chat1">User 1:</label><br /><br />
+                    <label htmlFor="chat1">User 1:</label><br /><br />
                     <textarea id="chat1" value={chat1} onChange={(event) => setChat1(event.target.value)} cols="20" rows="20"/><br />
-                    <button className="chatSendButton" for="chat1Form">Send</button><br /><br />
+                    <button className="chatSendButton" htmlFor="chat1Form">Send</button><br /><br />
                     </form><br />
                     <form onSubmit={event => {
                         event.preventDefault();
-                        setGenChat("");
+                        setGenChat([]);
                     }}>
-                    <label for="genChat">General Chat:</label><br /><br />
+                    <label htmlFor="genChat">General Chat:</label><br /><br />
                     <textarea id="genChat" value={genChat.join("\n")} cols="70" rows="20" /><br />
-                    <button for="genChat" className="chatSendButton">Clear</button>
+                    <button htmlFor="genChat" className="chatSendButton">Clear</button>
                     </form>
                     <form id="chat2Form" onSubmit={event => {
                          event.preventDefault(); 
@@ -63,9 +63,9 @@ const Test6 = () => {
                             }
                          setChat2("");
                     }}>
-                    <label for="chat2">User 2:</label><br /><br />
+                    <label htmlFor="chat2">User 2:</label><br /><br />
                     <textarea id="chat2" value={chat2} onChange={(event) => setChat2(event.target.value)} cols="20" rows="20"/><br />
-                    <button className="chatSendButton" for="chat2Form">Send</button>
+                    <button className="chatSendButton" htmlFor="chat2Form">Send</button>
                     </form>
                 </section>
         </section>
