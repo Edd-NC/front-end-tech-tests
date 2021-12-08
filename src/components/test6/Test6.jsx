@@ -7,6 +7,8 @@ const Test6 = () => {
     const [genChat, setGenChat] = useState([]);
     const [chat1, setChat1] = useState("");
     const [chat2, setChat2] = useState("");
+    const [user1, setUser1] = useState("User 1");
+    const [user2, setUser2] = useState("User 2");
     return (
         <section>
             <h2>Pseudo Instant Messaging Service</h2>
@@ -21,6 +23,7 @@ const Test6 = () => {
                         <li>Build 2 seperate chat boxes where a user can type a message and send it to the general chat box,</li>
                         <li>Make sure to remove any unecessary whitespace at the start and end of a message,</li>
                         <li>If a message is pure whitespace, make sure the message doesn't send,</li>
+                        <li>Give people a way to add their own names into the chat</li>
                     </ul>
                     <h4>Challenge:</h4>
                     <p></p>
@@ -33,14 +36,14 @@ const Test6 = () => {
                          if (chat.length > 0) {
                          setGenChat(genChat => {
                                  const newGenChat = [...genChat];
-                                 newGenChat.push("User 1: " + chat)
+                                 newGenChat.push(user1 + ": " + chat)
                                  return newGenChat;
                                 })
                             }
                          setChat1("");
                     }}>
-                    <label htmlFor="chat1">User 1:</label><br /><br />
-                    <textarea id="chat1" value={chat1} onChange={(event) => setChat1(event.target.value)} cols="20" rows="20"/><br />
+                    <input type="text" value={user1} onChange={event => setUser1(event.target.value)} /><br /><br />
+                    <textarea id="chat1" value={chat1} onChange={(event) => setChat1(event.target.value)} cols="30" rows="20"/><br />
                     <button className="chatSendButton" htmlFor="chat1Form">Send</button><br /><br />
                     </form><br />
                     <form onSubmit={event => {
@@ -57,14 +60,14 @@ const Test6 = () => {
                          if (chat) {
                          setGenChat(genChat => {
                                  const newGenChat = [...genChat];
-                                 newGenChat.push("User 2: " + chat)
+                                 newGenChat.push(user2 + ": " + chat)
                                  return newGenChat;
                                 })
                             }
                          setChat2("");
                     }}>
-                    <label htmlFor="chat2">User 2:</label><br /><br />
-                    <textarea id="chat2" value={chat2} onChange={(event) => setChat2(event.target.value)} cols="20" rows="20"/><br />
+                    <input type="text" value={user2} onChange={event => setUser2(event.target.value)} /><br /><br />
+                    <textarea id="chat2" value={chat2} onChange={(event) => setChat2(event.target.value)} cols="30" rows="20"/><br />
                     <button className="chatSendButton" htmlFor="chat2Form">Send</button>
                     </form>
                 </section>
