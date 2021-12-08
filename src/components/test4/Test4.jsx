@@ -7,12 +7,12 @@ const Test4 = () => {
     const [found, setFound] = useState(0);
     const [score, setScore] = useState("");
     useEffect(() => {
-            let xCoord = Math.floor(Math.random() * 15);
-            let yCoord = Math.floor(Math.random() * 9);
-            let game = new Array(9);
+            let xCoord = Math.floor(Math.random() * 18);
+            let yCoord = Math.floor(Math.random() * 7);
+            let game = new Array(7);
             game.fill([]);  
             game = game.map(set => {
-                const arr = new Array(15);
+                const arr = new Array(18);
                 arr.fill(null);
                 return arr;
             });
@@ -32,18 +32,15 @@ const Test4 = () => {
             {showInstructions && <section>
                 <hr />
                     <h3>Instructions:</h3>
-                    <p>Your task is to build a mini game where a player can guess all 50 US states...</p>
+                    <p>Your task is to build a mini game where a player must find an X in the grid to increase their score counter.</p>
                     <h4>You must complete the following:</h4>
                     <ul>
-                        <li>Create an input box where the user can type any case insensitive state and it will accept the answer,</li>
-                        <li>Create text box that will store all the correct answers the player has given,</li>
-                        <li>The text box should not accept duplicate values, regardless of case sensitvity,</li>
-                        <li>Create a restart button that will reset the game,</li>
-                        <li>A give up button that will show the remaining answers that the player did not guess,</li>
-                        <li>A counter that will tell the player how many states he has correctly guessed</li>
+                        <li>Build a box that has only 1 X inside of it that is hidden from view,</li>
+                        <li>When our mouse is over the X, reveal it to the player,</li>
+                        <li>The X should be clickable, when clicked increase the counter by 1 and hide the X again</li>
                     </ul>
                     <h4>Challenge:</h4>
-                    <p>Add a timer that when it reaches 0 will disable the input box until restart is pressed</p>
+                    <p>Add a score card that tells the player the fastest time that they've found the X this game</p>
                 <hr />
                 </section>}
 
