@@ -3,29 +3,29 @@ import "./Test1.css";
 const movieData = require("./movies.json");
 
 const Test1 = () => {
-    const [titleQuery, setTitleQuery] = useState("");
-    const [directorQuery, setDirectorQuery] = useState("");
+    const [listQuery, setListQuery] = useState("");
 
     return (
         <section>
             <h2>Movie List Filter:</h2>
             <form>
-            <label for="titleQuery">Query Title: </label><br />
-            <input id="titleQuery" value={titleQuery} onChange={(event) => setTitleQuery(event.target.value)} /><br />
-            <label for="directorQuery">Query Director: </label><br />
-            <input id="directorQuery" value={directorQuery} onChange={(event) => setDirectorQuery(event.target.value)} /><br /> 
+            <label for="listQuery">Query Movies: </label><br /><br />
+            <input id="listQuery" value={listQuery} onChange={(event) => setListQuery(event.target.value)} placeholder="Search by Title, Director, Genre, or Actor/Actress"/><br />
             </form>
             <br /><br />
                 <table>
                 <tr><th>Title</th><th>Director</th><th>Year</th><th>Genre</th><th>Cast</th><th>Average Rating</th></tr>
                 {movieData.map(movie => {
-                    const titleQ = movie.title.toLowerCase().includes(titleQuery.toLowerCase());
-                    const directorQ = movie.director.toLowerCase().includes(directorQuery.toLowerCase());
+                    const titleQuery = movie.title.toLowerCase().includes(listQuery.toLowerCase());
+                    const directorQuery = movie.director.toLowerCase().includes(listQuery.toLowerCase());
+                    const genreQuery = movie.genre.toLowerCase().includes(listQuery.toLowerCase());
+                    const castQuery = movie.cast.some(actor => actor.toLowerCase().includes(listQuery.toLowerCase()));
                     const ratings = Object.values(movie.ratings).flat();
                     ratings[0] *= 10;
-                    if(titleQ && directorQ) {
+                    const averageRating = (ratings.reduce((sum, num) => sum + num, 0)/ratings.length).toFixed(2);
+                    if(titleQuery || directorQuery || genreQuery || castQuery) {
                         return (
-                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td><td>{movie.cast.join(", ")}</td><td>{(ratings.reduce((sum, num) => sum + num, 0)/ratings.length).toFixed(2)}</td></tr>
+                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td><td>{movie.cast.join(", ")}</td><td>{averageRating}</td></tr>
                         )
                     } 
                 })}
