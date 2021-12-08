@@ -22,10 +22,10 @@ const Test5 = () => {
                 <li class="menu"><a href="#">Careers</a>
                     <div class="dropMenu">
                         <ul>
-                            <li><a href="#">Northcoders</a></li>
-                            <li><a href="#">Apple</a></li>
-                            <li><a href="#">Google</a></li>
-                            <li><a href="#">Twitter</a></li>
+                            <li><a href="https://northcoders.com/" target="_blank">Northcoders</a></li>
+                            <li><a href="https://www.apple.com/" target="_blank">Apple</a></li>
+                            <li><a href="https://www.google.com" target="_blank">Google</a></li>
+                            <li><a href="https://www.twitter.com" target="_blank">Twitter</a></li>
                         </ul>
                     </div>
                 </li>
