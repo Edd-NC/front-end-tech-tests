@@ -9,7 +9,7 @@ const Test1 = () => {
     return (
         <section>
             <h2>Movie List Filter:</h2>
-            <button onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
+            <button className="instructionsButton" onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
             {showInstructions &&
             <section>
                 <hr />
