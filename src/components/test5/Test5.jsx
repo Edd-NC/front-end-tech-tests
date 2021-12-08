@@ -7,7 +7,7 @@ const Test5 = () => {
 
     return (
         <section>
-            <h2>Build a Drop Down Menu with CSS</h2>
+            <h2>Build a Drop Down Menu</h2>
             <button className="instructionsButton" onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
             {showInstructions && <section>
                 <hr />
@@ -19,8 +19,9 @@ const Test5 = () => {
                         <li>Have a minimum of 2 of those elements have their own options to select,</li>
                         <li>When we hover over an expandable option, we want to display the rest of the options,</li>
                         <li>When we move away from the expandable option, it hides the rest of its options,</li>
-                        <li>Add a hover over effect on each option to show we are interacting with that option</li>
+                        <li>Add a hover over effect on each option to show we are interacting with that option,</li>
                     </ul>
+                        <strong>You must do this using pure CSS</strong>
                 <hr />
                 </section>}
             <ul id="menu">
