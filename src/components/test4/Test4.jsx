@@ -27,7 +27,7 @@ const Test4 = () => {
 
     return (
         <section>
-            <h2>Find the Hidden X Game:</h2>
+            <h2>Find the X Game:</h2>
             <button className="instructionsButton" onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
             {showInstructions && <section>
                 <hr />
@@ -44,7 +44,7 @@ const Test4 = () => {
                 <hr />
                 </section>}
 
-            <p>{score}</p>
+            <strong>{score}</strong><br /><br />
             <table className="gameTable">
             {newGame.map(row => {
                 return (
