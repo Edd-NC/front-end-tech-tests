@@ -17,11 +17,15 @@ const Test1 = () => {
             </form>
             <br /><br />
                 <table>
-                <tr><th>Title</th><th>Director</th><th>Year</th><th>Genre</th><th></th></tr>
+                <tr><th>Title</th><th>Director</th><th>Year</th><th>Genre</th><th>Cast</th><th>Average Rating</th></tr>
                 {movieData.map(movie => {
-                    if(movie.title.toLowerCase().includes(titleQuery.toLowerCase()) && movie.director.toLowerCase().includes(directorQuery.toLowerCase())) {
+                    const titleQ = movie.title.toLowerCase().includes(titleQuery.toLowerCase());
+                    const directorQ = movie.director.toLowerCase().includes(directorQuery.toLowerCase());
+                    const ratings = Object.values(movie.ratings).flat();
+                    ratings[0] *= 10;
+                    if(titleQ && directorQ) {
                         return (
-                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td></tr>
+                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td><td>{movie.cast.join(", ")}</td><td>{(ratings.reduce((sum, num) => sum + num, 0)/ratings.length).toFixed(2)}</td></tr>
                         )
                     } 
                 })}
