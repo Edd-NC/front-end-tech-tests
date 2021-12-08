@@ -6,7 +6,7 @@ const Test6 = () => {
     const [showInstructions, setShowInstructions] = useState(false);
     return (
         <section>
-            <h2>Build a Pseudo Instant Messaging Service</h2>
+            <h2>Pseudo Instant Messaging Service</h2>
             <button className="instructionsButton" onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
             {showInstructions && <section>
                 <hr />
