@@ -1,63 +1,56 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import "./Test2.css";
 import "../instructionsButton.css";
+const movieData = require("./movies.json");
 
-const Test2 = () => {
+const Test1 = () => {
     const [showInstructions, setShowInstructions] = useState(false);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [showSignUp, setShowSignUp] = useState(false);
-    const [signUpDetails, setSignUpDetails] = useState({name: "", email: "", password: ""});
-    return(
+    const [listQuery, setListQuery] = useState("");
+
+    return (
         <section>
-            <h2>Create a Log In Page:</h2>
+            <h2>Movie List Filter:</h2>
             <button className="instructionsButton" onClick={() => setShowInstructions(bool => !bool)}>Show/Hide Instructions</button><br /><br />
-            {showInstructions && <section>
+            {showInstructions &&
+            <section>
                 <hr />
-                    <h3>Instructions:</h3>
-                    <p>Your task is to build a login form where a user input their email and password to enter a website. Or, where they can sign up.</p>
-                    <h4>You must complete the following:</h4>
-                    <ul>
-                        <li>Create a log in form where a user can put in their details,</li>
-                        <li>Create a sign up form where a new user can create an account, using their name, email and password,</li>
-                        <li>Hide the sign up info unless they click a button where they can sign up</li>
-                    </ul>
-                    <h4>Challenge:</h4>
-                    <p>Add in input validation to ensure that their email is of the correct format and their password contains a number, a lowercase letter and an uppercase letter</p>
+                <h3>Instructions:</h3>
+                <p>Your task is to build a similar movie search bar as below. We have given the data for you in a movies.json file.</p>
+                <h4>You must complete the following:</h4>
+                <ul>
+                    <li>A results table displaying the title, director, genre, cast and average rating of each movie,</li>
+                    <li>A search bar that will only display movies that match the current search,</li>
+                    <li>The search bar must be able to search for any movie title, director, genre or cast member,</li>
+                </ul>
+                <h4>Challenge:</h4>
+                <p>Can you create a 500 milisecond delay before updating the list once the user has stopped typing?</p>
                 <hr />
-                </section>}
-            <form id="loginForm">
-                <label for="email" >Email:</label><br />
-                <input id="email" type="text" value={email} onChange={(event) => setEmail(event.target.value)} autocomplete="off" required/><br /> <br />
-                <label for="password">Password:</label><br />
-                <input id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)} autocomplete="off" required/><br /><br />
-                <button type="submit" for="loginForm">Submit</button><br /><br />
+            </section>
+            }
+            <form>
+            <label for="listQuery">Query Movies: </label><br /><br />
+            <input id="listQuery" value={listQuery} onChange={(event) => setListQuery(event.target.value)} placeholder="Search by Title, Director, Genre, or Actor/Actress"/><br />
             </form>
-            <button onClick={() => setShowSignUp(signUp => !signUp)}>Sign Up?</button><br /><br />
-            {showSignUp && <section>
-                    <form id="signUpForm">
-                        <label for="nameSignUp">Your Name: </label><br />
-                        <input id="nameSignUp" type="text" value={signUpDetails.name} onChange={(event) => setSignUpDetails(details => {
-                            const name = event.target.value;
-                            const newDetails = {...details, name};
-                            return newDetails})} autocomplete="off" required/><br /><br />
-                        <label for="emailSignUp">Your Email:</label><br />
-                        <input id="emailSignUp" type="text" value={signUpDetails.email} onChange={(event) => setSignUpDetails(details => {
-                            const email = event.target.value;
-                            const newDetails = {...details, email};
-                            return newDetails;
-                        })} autocomplete="off" required/><br /><br />
-                        <label for="passwordSignUp">Password:</label><br />
-                        <input id="passwordSignUp" type="password" value={signUpDetails.password} onChange={event => setSignUpDetails(details => {
-                            const password = event.target.value;
-                            const newDetails = {...details, password};
-                            return newDetails;
-                        })} autocomplete="off" required/><br /><br />
-                        <button type="submit" for="signUpForm">Submit</button> 
-                    </form>
-                </section>}
+            <br /><br />
+                <table>
+                <tr><th>Title</th><th>Director</th><th>Year</th><th>Genre</th><th>Cast</th><th>Average Rating</th></tr>
+                {movieData.map(movie => {
+                    const titleQuery = movie.title.toLowerCase().includes(listQuery.toLowerCase());
+                    const directorQuery = movie.director.toLowerCase().includes(listQuery.toLowerCase());
+                    const genreQuery = movie.genre.toLowerCase().includes(listQuery.toLowerCase());
+                    const castQuery = movie.cast.some(actor => actor.toLowerCase().includes(listQuery.toLowerCase()));
+                    const ratings = Object.values(movie.ratings).flat();
+                    ratings[0] *= 10;
+                    const averageRating = (ratings.reduce((sum, num) => sum + num, 0)/ratings.length).toFixed(2);
+                    if(titleQuery || directorQuery || genreQuery || castQuery) {
+                        return (
+                            <tr><td>{movie.title}</td><td>{movie.director}</td><td>{movie.year}</td><td>{movie.genre}</td><td>{movie.cast.join(", ")}</td><td>{averageRating}</td></tr>
+                        )
+                    } 
+                })}
+            </table>
         </section>
     )
 }
 
-export default Test2;
+export default Test1;
