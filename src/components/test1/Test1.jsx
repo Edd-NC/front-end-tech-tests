@@ -15,7 +15,7 @@ const Test1 = () => {
                 <hr />
                 <h3>Instructions:</h3>
                 <p>Your task is to build a similar movie search bar as below. We have given the data for you in a movies.json file.</p>
-                <p>You must complete the following:</p>
+                <h4>You must complete the following:</h4>
                 <ul>
                     <li>A results table displaying the title, director, genre, cast and average rating of each movie,</li>
                     <li>A search bar that will only display movies that match the current search,</li>
