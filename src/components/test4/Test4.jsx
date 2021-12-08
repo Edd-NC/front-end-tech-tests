@@ -4,6 +4,7 @@ import "./Test4.css";
 const Test4 = () => {
     const [newGame, setNewGame] = useState([]);
     const [found, setFound] = useState(0);
+    const [score, setScore] = useState("");
     useEffect(() => {
             let xCoord = Math.floor(Math.random() * 15);
             let yCoord = Math.floor(Math.random() * 9);
@@ -16,12 +17,17 @@ const Test4 = () => {
             });
             game[yCoord][xCoord] = "x";
             setNewGame(game);
+            if(found === 1) {
+                setScore("You've found the X 1 time!")
+            } else {
+                setScore(`You've found the X ${found} times!`)
+            }
         },[found]);
 
     return (
         <section>
             <h2>Find the Hidden X Game:</h2>
-            <p>You've found the X {found} times!</p>
+            <p>{score}</p>
             <table className="gameTable">
             {newGame.map(row => {
                 return (
