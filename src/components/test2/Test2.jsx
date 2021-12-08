@@ -21,7 +21,7 @@ const Test2 = () => {
                         <li>Create a sign up form where a new user can create an account, using their name, email and password,</li>
                         <li>Hide the sign up info unless they click a button where they can sign up</li>
                     </ul>
-                    <h4>Challenge</h4>
+                    <h4>Challenge:</h4>
                     <p>Add in input validation to ensure that their email is of the correct format and their password contains a number, a lowercase letter and an uppercase letter</p>
                 <hr />
                 </section>}
