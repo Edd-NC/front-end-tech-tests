@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Test6 = () => {
     const [showInstructions, setShowInstructions] = useState(false);
+    const [genChat, setGenChat] = useState([]);
     return (
         <section>
             <h2>Pseudo Instant Messaging Service</h2>
@@ -21,7 +22,10 @@ const Test6 = () => {
                     <p></p>
                 <hr />
                 </section>}
-
+                <section>
+                    <label for="genChat">General Chat:</label><br />
+                    <textarea id="genChat" value={genChat.join("\n")} cols="70" rows="20"></textarea>
+                </section>
         </section>
     )
 }
