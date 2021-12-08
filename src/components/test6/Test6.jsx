@@ -1,3 +1,5 @@
+import "./Test6.css";
+
 const Test6 = () => {
     return (
         <section>
