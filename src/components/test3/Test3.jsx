@@ -51,11 +51,9 @@ const Test3 = () => {
             }}>Restart?</button><br /><br />
             <label for="answerInput">Guess Here:</label><br />
             <input id="answerInput" type="text" value={answer} onChange={event => {
-                setAnswer(event.target.value)
-                
-            }} /> <br /><br />
+                setAnswer(event.target.value)}} placeholder="What state are you thinking of?" /> <br /><br />
             <p>Total: {correctAnswers.length} / 50</p>
-            <textarea cols="100" rows="10" value={correctAnswers.join(", ")} disabled /><br /><br />
+            <textarea cols="100" rows="10" value={correctAnswers.join(", ")} placeholder="Your correct answers..." disabled /><br /><br />
             <button className="t3button" onClick={() => {
                 states.forEach(state => {
                     if (!correctAnswers.includes(state)) {
