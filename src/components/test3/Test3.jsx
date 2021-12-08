@@ -24,7 +24,7 @@ const Test3 = () => {
     return (
         <section>
             <h2>50 US States Game:</h2>
-            <button onClick={() => {
+            <button className="t3button" onClick={() => {
                 setCorrectAnswers([]);
                 setAnswer("");
             }}>Restart?</button><br /><br />
@@ -35,7 +35,7 @@ const Test3 = () => {
             }} /> <br /><br />
             <p>Total: {correctAnswers.length} / 50</p>
             <textarea cols="100" rows="10" value={correctAnswers.join(", ")} /><br /><br />
-            <button onClick={() => {
+            <button className="t3button" onClick={() => {
                 states.forEach(state => {
                     if (!correctAnswers.includes(state)) {
                         setCorrectAnswers(answers => {
