@@ -51,7 +51,7 @@ const Test3 = () => {
             }}>Restart?</button><br /><br />
             <label for="answerInput">Guess Here:</label><br />
             <input id="answerInput" type="text" value={answer} onChange={event => {
-                setAnswer(event.target.value)}} placeholder="What state are you thinking of?" /> <br /><br />
+                setAnswer(event.target.value)}} placeholder="What State are you thinking of?" /> <br /><br />
             <p>Total: {correctAnswers.length} / 50</p>
             <textarea cols="100" rows="10" value={correctAnswers.join(", ")} placeholder="Your correct answers..." disabled /><br /><br />
             <button className="t3button" onClick={() => {

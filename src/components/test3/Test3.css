@@ -16,3 +16,7 @@
 .t3button:active {
     background-color: red;
 }
+
+#answerInput {
+    width: 200px;
+}
