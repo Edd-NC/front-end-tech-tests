@@ -19,38 +19,52 @@ const Test6 = () => {
                     <ul>
                         <li>Build a box that contains all the messages and who sent them in chronological order,</li>
                         <li>Build 2 seperate chat boxes where a user can type a message and send it to the general chat box,</li>
+                        <li>Make sure to remove any unecessary whitespace at the start and end of a message,</li>
+                        <li>If a message is pure whitespace, make sure the message doesn't send,</li>
                     </ul>
                     <h4>Challenge:</h4>
                     <p></p>
                 <hr />
                 </section>}
-                <section>
+                <section className="IMS">
                     <form id="chat1Form" onSubmit={event => {
                          event.preventDefault(); 
+                         let chat = chat1.trim();
+                         if (chat.length > 0) {
                          setGenChat(genChat => {
-                             const newGenChat = [...genChat];
-                             newGenChat.push("User 1: " + chat1)
-                             return newGenChat;
-                         })
+                                 const newGenChat = [...genChat];
+                                 newGenChat.push("User 1: " + chat)
+                                 return newGenChat;
+                                })
+                            }
                          setChat1("");
                     }}>
-                    <label for="chat1">User 1:</label><br />
-                    <textarea id="chat1" value={chat1} onChange={(event) => setChat1(event.target.value)} cols="20" rows="20"/>
-                    <button className="chatSendButton" for="chat1Form">Send</button>
+                    <label for="chat1">User 1:</label><br /><br />
+                    <textarea id="chat1" value={chat1} onChange={(event) => setChat1(event.target.value)} cols="20" rows="20"/><br />
+                    <button className="chatSendButton" for="chat1Form">Send</button><br /><br />
+                    </form><br />
+                    <form onSubmit={event => {
+                        event.preventDefault();
+                        setGenChat("");
+                    }}>
+                    <label for="genChat">General Chat:</label><br /><br />
+                    <textarea id="genChat" value={genChat.join("\n")} cols="70" rows="20" /><br />
+                    <button for="genChat" className="chatSendButton">Clear</button>
                     </form>
-                    <label for="genChat">General Chat:</label><br />
-                    <textarea id="genChat" value={genChat.join("\n")} cols="70" rows="20" />
                     <form id="chat2Form" onSubmit={event => {
                          event.preventDefault(); 
+                         let chat = chat2.trim();
+                         if (chat) {
                          setGenChat(genChat => {
-                             const newGenChat = [...genChat];
-                             newGenChat.push("User 2: " + chat2)
-                             return newGenChat;
-                         })
+                                 const newGenChat = [...genChat];
+                                 newGenChat.push("User 2: " + chat)
+                                 return newGenChat;
+                                })
+                            }
                          setChat2("");
                     }}>
-                    <label for="chat2">User 2:</label><br />
-                    <textarea id="chat2" value={chat2} onChange={(event) => setChat2(event.target.value)} cols="20" rows="20"/>
+                    <label for="chat2">User 2:</label><br /><br />
+                    <textarea id="chat2" value={chat2} onChange={(event) => setChat2(event.target.value)} cols="20" rows="20"/><br />
                     <button className="chatSendButton" for="chat2Form">Send</button>
                     </form>
                 </section>
