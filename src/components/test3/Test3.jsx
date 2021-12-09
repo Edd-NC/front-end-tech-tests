@@ -8,16 +8,21 @@ const Test3 = () => {
     const [showInstructions, setShowInstructions] = useState(false);
     const [answer, setAnswer] = useState("");
     const [correctAnswers, setCorrectAnswers] = useState([]);
+    const [givenUp, setGivenUp] = useState(false);
+    const [stateCount, setStateCount] = useState(0);
 
     useEffect(() => {
         const regex = new RegExp(`^${answer}$`, "i");
         states.forEach(state => {
-            const value = state[0].toUpperCase() + state.slice(1).toLowerCase();
             if(regex.test(state) && !correctAnswers.some(state => regex.test(state))) {
+                setStateCount(count => count + 1);
                 setCorrectAnswers(answers => {
                     const newAnswers = [...answers];
                     const newState = states.filter(state => regex.test(state))
                     newAnswers.push(newState[0]);
+                    if(newAnswers.length === 50 && !givenUp) {
+                        newAnswers.push("\n\nCongratulations, you named all 50 US States!")
+                    }
                     return newAnswers;
                 })
                 setAnswer("");
@@ -46,20 +51,25 @@ const Test3 = () => {
                 <hr />
                 </section>}
             <button className="t3button" onClick={() => {
+                setStateCount(0);
                 setCorrectAnswers([]);
                 setAnswer("");
             }}>Restart?</button><br /><br />
             <label for="answerInput">Guess Here:</label><br />
             <input id="answerInput" type="text" value={answer} onChange={event => {
                 setAnswer(event.target.value)}} placeholder="What State are you thinking of?" /> <br /><br />
-            <p>Total: {correctAnswers.length} / 50</p>
+            <p>Total: {stateCount} / 50</p>
             <textarea cols="100" rows="10" value={correctAnswers.join(", ")} placeholder="Your correct answers..." disabled /><br /><br />
             <button className="t3button" onClick={() => {
-                states.forEach(state => {
+                setGivenUp(true);
+                states.forEach((state, index) => {
                     if (!correctAnswers.includes(state)) {
                         setCorrectAnswers(answers => {
                             const newAnswers = [...answers];
                             newAnswers.push(state);
+                            if(index === 49) {
+                                newAnswers.push("\n\nMaybe you'll guess them all next time?");
+                            }
                             return newAnswers;
                         })
                     }
