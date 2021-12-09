@@ -1,10 +1,9 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom"
-import Header from './components/Header';
 import Nav from './components/Nav';
 import Home from './components/Home.jsx';
 import Test1 from './components/test1/Test1.jsx';
-import Test2 from './components/test1/Test1.jsx';
+import Test2 from './components/test2/Test2.jsx';
 import Test3 from './components/test3/Test3.jsx';
 import Test4 from './components/test4/Test4.jsx';
 import Test5 from './components/test5/Test5.jsx';
