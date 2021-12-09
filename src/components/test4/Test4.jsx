@@ -33,7 +33,7 @@ const Test4 = () => {
             {showInstructions && <section>
                 <hr />
                     <h3>Instructions:</h3>
-                    <p>Your task is to build a mini game where a player must find an X in the grid to increase their score counter.</p>
+                    <p>Your task is to build a mini game where a player must find an X in the box to increase their score counter.</p>
                     <h4>You must complete the following:</h4>
                     <ul>
                         <li>Build a box that has only 1 X inside of it that is hidden from view,</li>
