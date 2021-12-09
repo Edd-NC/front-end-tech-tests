@@ -25,8 +25,6 @@ const Test6 = () => {
                         <li>If a message is pure whitespace, make sure the message doesn't send,</li>
                         <li>Give people a way to add their own names into the chat</li>
                     </ul>
-                    <h4>Challenge:</h4>
-                    <p></p>
                 <hr />
                 </section>}
                 <section className="IMS">
